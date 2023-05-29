@@ -6,7 +6,7 @@ if(isset($_POST['submit'])){
     $password = $_POST['password']; 
 
 // for empty data 
-if($username&&$email&& $password){
+if($username && $email && $password){
 // database connect
     $host = 'localhost';
     $user = 'root';
@@ -23,6 +23,8 @@ if($username&&$email&& $password){
     if(!$result){
         die("not inserted." .mysql_error());
      }
+  } else{
+    echo "Any Field Cannot be blank";
   }
 }
 ?>
