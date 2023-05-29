@@ -17,10 +17,8 @@ if(isset($_POST['submit'])){
 // insert data 
     $sqlQuery= "INSERT INTO user_info(username,email,password) values ('$username','$email','$password')";
     $result = mysqli_query($conn,$sqlQuery);
-    if($result){
-        echo"insert success";
-    }else{
-        echo "insert not success";
+    if(!$result){
+        die("not inserted." .mysql_error());
     }
 }
 ?>
@@ -33,10 +31,6 @@ if(isset($_POST['submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
-
-
-
 <body>
 <form action="#" method="POST" >
 username : <input type="text" name="username" placeholder="username"> <br><br><br>
@@ -44,10 +38,5 @@ email : <input type="email" name="email" placeholder="email"><br><br><br>
 password : <input  name="password"placeholder="password"><br> <br><br>
 <input type="submit" name="submit">
 </form> 
-
-
-
-
-
 </body>
 </html>
