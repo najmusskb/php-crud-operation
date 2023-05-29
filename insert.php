@@ -4,6 +4,9 @@ if(isset($_POST['submit'])){
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password']; 
+
+// for empty data 
+if($username&&$email&& $password){
 // database connect
     $host = 'localhost';
     $user = 'root';
@@ -19,7 +22,8 @@ if(isset($_POST['submit'])){
     $result = mysqli_query($conn,$sqlQuery);
     if(!$result){
         die("not inserted." .mysql_error());
-    }
+     }
+  }
 }
 ?>
 
